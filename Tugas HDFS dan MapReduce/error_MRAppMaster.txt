@@ -1,0 +1,60 @@
+2021-09-25 13:16:06,354 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+2021-09-25 13:16:16,721 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2021-09-25 13:16:16,739 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/chairul/.staging/job_1632548129283_0003
+2021-09-25 13:16:16,944 INFO input.FileInputFormat: Total input files to process : 1
+2021-09-25 13:16:17,010 INFO mapreduce.JobSubmitter: number of splits:2
+2021-09-25 13:16:17,144 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1632548129283_0003
+2021-09-25 13:16:17,146 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2021-09-25 13:16:17,334 INFO conf.Configuration: resource-types.xml not found
+2021-09-25 13:16:17,335 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2021-09-25 13:16:17,401 INFO impl.YarnClientImpl: Submitted application application_1632548129283_0003
+2021-09-25 13:16:17,441 INFO mapreduce.Job: The url to track the job: http://maze.localdomain:8088/proxy/application_1632548129283_0003/
+2021-09-25 13:16:17,441 INFO mapreduce.Job: Running job: job_1632548129283_0003
+2021-09-25 13:16:21,508 INFO mapreduce.Job: Job job_1632548129283_0003 running in uber mode : false
+2021-09-25 13:16:21,511 INFO mapreduce.Job:  map 0% reduce 0%
+2021-09-25 13:16:21,543 INFO mapreduce.Job: Job job_1632548129283_0003 failed with state FAILED due to: Application application_1632548129283_0003 failed 2 times due to AM Container for appattempt_1632548129283_0003_000002 exited with  exitCode: 1
+Failing this attempt.Diagnostics: [2021-09-25 13:16:20.524]Exception from container-launch.
+Container id: container_1632548129283_0003_02_000001
+Exit code: 1
+
+[2021-09-25 13:16:20.528]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+Error: Could not find or load main class org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+
+Please check whether your etc/hadoop/mapred-site.xml contains the below configuration:
+<property>
+  <name>yarn.app.mapreduce.am.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+<property>
+  <name>mapreduce.map.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+<property>
+  <name>mapreduce.reduce.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+
+[2021-09-25 13:16:20.528]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+Error: Could not find or load main class org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+
+Please check whether your etc/hadoop/mapred-site.xml contains the below configuration:
+<property>
+  <name>yarn.app.mapreduce.am.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+<property>
+  <name>mapreduce.map.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+<property>
+  <name>mapreduce.reduce.env</name>
+  <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+</property>
+
+For more detailed output, check the application tracking page: http://maze.localdomain:8088/cluster/app/application_1632548129283_0003 Then click on links to logs of each attempt.
+. Failing the application.
+2021-09-25 13:16:21,584 INFO mapreduce.Job: Counters: 0
